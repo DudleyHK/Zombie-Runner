@@ -231,6 +231,22 @@ Prefab:
     - target: {fileID: 114557552314456762, guid: 21eb733bf2083d94ca7ca82776ff4b9d,
         type: 2}
       propertyPath: popout
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114557552314456762, guid: 21eb733bf2083d94ca7ca82776ff4b9d,
+        type: 2}
+      propertyPath: zombiePrefab
+      value: 
+      objectReference: {fileID: 1216124237750596, guid: 83071b494e8e82c439632558862f23db,
+        type: 2}
+    - target: {fileID: 114557552314456762, guid: 21eb733bf2083d94ca7ca82776ff4b9d,
+        type: 2}
+      propertyPath: zoffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114557552314456762, guid: 21eb733bf2083d94ca7ca82776ff4b9d,
+        type: 2}
+      propertyPath: xoffset
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -320,14 +320,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815863887}
-  m_LocalRotation: {x: 0.07338688, y: 0.89253896, z: -0.15737869, w: 0.41619772}
-  m_LocalPosition: {x: 0, y: 2, z: 2.25}
+  m_LocalRotation: {x: -0.2351364, y: 0.44822803, z: -0.123476684, w: -0.85355496}
+  m_LocalPosition: {x: 9.5, y: 6.63, z: -14.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 58716687}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 20, y: 130, z: 0}
+  m_LocalEulerAnglesHint: {x: 30.804, y: -55.411003, z: 0}
 --- !u!1 &887296128
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed30e06e08d27c45bd72c24d8988d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawn_position: {x: 0, y: 0, z: -0.5}
+  m_spawn_position: {x: 0, y: 0, z: 1}
   m_position_change: {x: 0, y: 0, z: 1.23}
   m_camera_checkpoint: {x: 0, y: 0, z: 0}
   m_floor_objects:
@@ -422,6 +422,7 @@ MonoBehaviour:
   m_floor_index: 0
   m_floor_max_index: 0
   m_max_spawn_count: 500
+  m_reverse: 0
 --- !u!114 &894615011
 MonoBehaviour:
   m_ObjectHideFlags: 0

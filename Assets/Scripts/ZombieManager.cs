@@ -46,19 +46,16 @@ public class ZombieManager : MonoBehaviour
 
     private void Start()
     {
-        float rz = zoffset;
-        float rx = xoffset;
+        float rz = 0;
         for (int i = 0; i < maxEntities; i++)
         {
-            var zombie = Instantiate(zombiePrefab, new Vector3(rx, 0f, rz), Quaternion.identity, transform);
+            var zombie = Instantiate(zombiePrefab, new Vector3(GetSpawnX(), 0f, rz), Quaternion.identity, transform);
             entities[i].renderer = zombie.GetComponentInChildren<SkinnedMeshRenderer>();
             entities[i].transform = zombie.transform;
             zombie.name = "zombie index: " + i;
 
             if (i % entitiesPerline == 0)
                 rz -= entitySpacing;
-
-            rx -= 1.5f;
         }
     }
 
@@ -92,9 +89,7 @@ public class ZombieManager : MonoBehaviour
             Entity entity = entities[i];
             Vector3 screenPos = cam.WorldToViewportPoint(entity.transform.position);
 
-
-            // check if its outside camera view
-            if (screenPos.z < 0f || screenPos.x < popout || screenPos.x > 1f || screenPos.y < 0f || screenPos.y > 1f)
+            if(!CameraUtils.InFieldOfViewX(Camera.main, entity.transform.position, new Vector2(popout, 1f)))
             {
                 entities[i].renderer.enabled = false;
 
@@ -106,6 +101,15 @@ public class ZombieManager : MonoBehaviour
             else
             {
                 entities[i].renderer.enabled = true;
+            }
+
+            
+            // check if its outside camera view
+            if (screenPos.z < 0f || screenPos.x < popout || screenPos.x > 1f || screenPos.y < 0f || screenPos.y > 1f)
+            {
+            }
+            else
+            {
             }
         }
     }

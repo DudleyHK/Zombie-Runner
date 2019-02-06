@@ -10,8 +10,8 @@ public static class CameraUtils
         Vector3 screenPos = _cam.WorldToViewportPoint(_objectPosition);
         
         // check if its outside camera view
-        return screenPos.z < 0f || screenPos.x < _minMax.x || screenPos.x > _minMax.y || screenPos.y < 0f ||
-               screenPos.y > 1f;
+        return !(screenPos.z < 0f || screenPos.x < _minMax.x || screenPos.x > _minMax.y || screenPos.y < 0f ||
+                 screenPos.y > 1f);
 
     }
 }
