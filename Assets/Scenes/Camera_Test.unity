@@ -439,10 +439,10 @@ MonoBehaviour:
   floor: {fileID: 1387088606416644, guid: 47005a5b9fe5fd043a3d30eebbe47262, type: 2}
   entities: []
   frameStep: 0.1
-  entitySpacing: 2
-  popout: 1.5
-  zoffset: -5
-  xoffset: -1.5
+  entitySpacing: 3
+  popout: -0.5
+  zoffset: 0
+  xoffset: 0
   entitiesPerline: 3
   maxEntities: 1000
   floorCentre: {x: 0, y: 0, z: 0}
