@@ -77,7 +77,7 @@ public class ZombieManager : MonoBehaviour
 
     private float GetSpawnX()
     {
-        return Random.Range(floorCentre.x - 1f, floorCentre.x + 1f);
+        return Random.Range(floorCentre.x - xoffset, floorCentre.x + xoffset);
     }
 
 
@@ -87,11 +87,9 @@ public class ZombieManager : MonoBehaviour
         for (int i = 0; i < entities.Length; i++)
         {
             Entity entity = entities[i];
-            Vector3 screenPos = cam.WorldToViewportPoint(entity.transform.position);
-
             if(!CameraUtils.InFieldOfViewX(Camera.main, entity.transform.position, new Vector2(popout, 1f)))
             {
-                entities[i].renderer.enabled = false;
+                entity.renderer.enabled = false;
 
                 Vector3 pos = entities[i].transform.position;
                 pos.x = GetSpawnX();
@@ -101,15 +99,6 @@ public class ZombieManager : MonoBehaviour
             else
             {
                 entities[i].renderer.enabled = true;
-            }
-
-            
-            // check if its outside camera view
-            if (screenPos.z < 0f || screenPos.x < popout || screenPos.x > 1f || screenPos.y < 0f || screenPos.y > 1f)
-            {
-            }
-            else
-            {
             }
         }
     }
