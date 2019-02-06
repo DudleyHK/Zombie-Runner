@@ -26,7 +26,7 @@ public class Camera_Controller : MonoBehaviour
     void MoveCamera()
     {
         float movement = Time.deltaTime * m_camera_speed;
-        Vector3 change = new Vector3(movement, 0.0f, 0.0f);
+        Vector3 change = new Vector3(0.0f, 0.0f, movement);
 
         m_camera.transform.position += change;
     }
@@ -34,7 +34,7 @@ public class Camera_Controller : MonoBehaviour
     void MoveCameraF()
     {
         float movement = Time.fixedDeltaTime * m_camera_speed;
-        Vector3 change = new Vector3(movement, 0.0f, 0.0f);
+        Vector3 change = new Vector3(0.0f, 0.0f, movement);
 
         m_camera.transform.position += change;
     }
