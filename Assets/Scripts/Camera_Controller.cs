@@ -2,15 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera_Controller : MonoBehaviour {
+public class Camera_Controller : MonoBehaviour
+{
+    private Camera m_camera;
+    [SerializeField] private float m_camera_speed = 5.0f;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        m_camera = Camera.main;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        MoveCamera();
 	}
+
+    private void FixedUpdate()
+    {
+        //MoveCameraF();
+    }
+
+    void MoveCamera()
+    {
+        float movement = Time.deltaTime * m_camera_speed;
+        Vector3 change = new Vector3(movement, 0.0f, 0.0f);
+
+        m_camera.transform.position += change;
+    }
+
+    void MoveCameraF()
+    {
+        float movement = Time.fixedDeltaTime * m_camera_speed;
+        Vector3 change = new Vector3(movement, 0.0f, 0.0f);
+
+        m_camera.transform.position += change;
+    }
 }
