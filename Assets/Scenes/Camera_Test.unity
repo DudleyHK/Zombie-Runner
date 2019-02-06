@@ -352,8 +352,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1803148928}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +366,7 @@ GameObject:
   - component: {fileID: 894615009}
   - component: {fileID: 894615008}
   - component: {fileID: 894615010}
+  - component: {fileID: 894615011}
   m_Layer: 0
   m_Name: Game_Controller
   m_TagString: Untagged
@@ -410,100 +410,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed30e06e08d27c45bd72c24d8988d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawn_position: {x: 0, y: 0, z: 0.5}
-  m_position_change: {x: 0, y: 0, z: 0}
+  m_spawn_position: {x: 0, y: 0, z: -0.5}
+  m_position_change: {x: 0, y: 0, z: 1.23}
+  m_camera_checkpoint: {x: 0, y: 0, z: 0}
   m_floor_objects:
   - {fileID: 1387088606416644, guid: 47005a5b9fe5fd043a3d30eebbe47262, type: 2}
   - {fileID: 1104741389220030, guid: 2be53c95d0241ab40a461785bae9634d, type: 2}
+  m_floor: []
   m_parent: {fileID: 887296128}
+  m_last_floor_index: 0
   m_floor_index: 0
   m_floor_max_index: 0
-  m_spawn_rate: 0
-  m_spawn_time_elapsed: 0
   m_max_spawn_count: 500
-  m_spawn_count: 0
---- !u!1 &1803148927
-GameObject:
+--- !u!114 &894615011
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1803148928}
-  - component: {fileID: 1803148931}
-  - component: {fileID: 1803148930}
-  - component: {fileID: 1803148929}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1803148928
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803148927}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -0.5}
-  m_LocalScale: {x: 1000, y: 2, z: 1}
-  m_Children: []
-  m_Father: {fileID: 887296129}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1803148929
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803148927}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 894615007}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1803148930
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803148927}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 2100000, guid: 3b19a0b3d13adfb45a7c1fd697ef6a62, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &1803148931
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1803148927}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68052871536df4b468c53d4bffb0c087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefab: {fileID: 1216124237750596, guid: 83071b494e8e82c439632558862f23db,
+    type: 2}
+  floor: {fileID: 1387088606416644, guid: 47005a5b9fe5fd043a3d30eebbe47262, type: 2}
+  entities: []
+  frameStep: 0.1
+  entitySpacing: 2
+  popout: 1.5
+  zoffset: -5
+  xoffset: -1.5
+  entitiesPerline: 3
+  maxEntities: 1000
+  floorCentre: {x: 0, y: 0, z: 0}

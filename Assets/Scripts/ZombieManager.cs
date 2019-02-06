@@ -18,16 +18,19 @@ public struct Entity
 
 public class ZombieManager : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject zombiePrefab;
     public GameObject floor;
     public Entity[] entities;
 
     public float frameStep = 0.1f;
     public float entitySpacing = 2f;
     public float popout = 1.5f;
+    public float zoffset = -5f;
+    public float xoffset = -1.5f;
     public ushort entitiesPerline = 3;
     public ushort maxEntities = 1000;
-    public Vector3 worldCentre;
+    
+    public Vector3 floorCentre;
 
 
     private float timer = 0f;
@@ -43,11 +46,11 @@ public class ZombieManager : MonoBehaviour
 
     private void Start()
     {
-        float rz = -5f;
-        float rx = -1.5f;
+        float rz = zoffset;
+        float rx = xoffset;
         for (int i = 0; i < maxEntities; i++)
         {
-            var zombie = Instantiate(prefab, new Vector3(rx, 0f, rz), Quaternion.identity, transform);
+            var zombie = Instantiate(zombiePrefab, new Vector3(rx, 0f, rz), Quaternion.identity, transform);
             entities[i].renderer = zombie.GetComponentInChildren<SkinnedMeshRenderer>();
             entities[i].transform = zombie.transform;
             zombie.name = "zombie index: " + i;
@@ -67,21 +70,7 @@ public class ZombieManager : MonoBehaviour
         // Wrap in timeer. 
         if (timer <= 0f)
         {
-            timer = frameStep;
-
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-
-            foreach (var hit in Physics.RaycastAll(ray))
-            {
-                if (hit.transform.name == "Floor")
-                {
-                    worldCentre = hit.point;
-                }
-                else
-                    Debug.Log("name - " + hit.transform.name);
-
-                Debug.DrawRay(ray.origin, ray.direction * 50f, Color.cyan);
-            }
+            
         }
         else
         {
@@ -91,7 +80,7 @@ public class ZombieManager : MonoBehaviour
 
     private float GetSpawnX()
     {
-        return Random.Range(worldCentre.x - 1f, worldCentre.x + 1f);
+        return Random.Range(floorCentre.x - 1f, floorCentre.x + 1f);
     }
 
 
@@ -130,6 +119,6 @@ public class ZombieManager : MonoBehaviour
 
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(worldCentre, .75f);
+        Gizmos.DrawWireSphere(floorCentre, .75f);
     }
 }
