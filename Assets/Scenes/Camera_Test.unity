@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed30e06e08d27c45bd72c24d8988d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_spawn_position: {x: 0, y: 0, z: 1}
-  m_position_change: {x: 0, y: 0, z: 1.23}
+  m_spawn_position: {x: 0, y: 0, z: -100}
+  m_position_change: {x: 0, y: 0, z: 0}
   m_camera_checkpoint: {x: 0, y: 0, z: 0}
   m_floor_objects:
   - {fileID: 1387088606416644, guid: 47005a5b9fe5fd043a3d30eebbe47262, type: 2}
