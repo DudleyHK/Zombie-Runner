@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
+using UnityEditor;
 
 using Random = Unity.Mathematics.Random;
 
@@ -12,36 +13,41 @@ public class AgentSpawner : MonoBehaviour
     [SerializeField] private float3 spawnOrigin;
     [SerializeField] private float spawnRadius;
     [SerializeField] private Rigidbody[] agentsRB;
+    [SerializeField] private Transform[] agents;
     [SerializeField] private ushort maxAgents;
+    [SerializeField] private half maxt = .1f; // maxtime
 
     private GameObject defaultAgent;
     private half tt; // time
-    private half maxt; // maxtime
     private Vector3 spawnPosOffset;
 
 
     private void Start()
     {
-        agentsRB = new Rigidbody[maxAgents];
+        agents = new Transform[maxAgents];
 
-        defaultAgent = GameObject.Find("DefualtAgent");
+        defaultAgent = GameObject.Find("DefaultAgent");
+       
 
-        for (int i = 0; i < maxAgents; i++)
+        for(int i = 0; i < maxAgents; i++)
         {
-            var agent  = GameObject.Instantiate(defaultAgent, spawnPosOffset, Quaternion.identity);
+            var agent = Instantiate(defaultAgent, spawnPosOffset, Quaternion.identity);
             agent.name = "zombie id " + i;
 
-            agentsRB[i] = agent.GetComponent<Rigidbody>();
-        }
+            agents[i] = agent.transform;
+
+            //agent.SetActive(false);
+        } 
+        Destroy(defaultAgent);
+        StartCoroutine(Spawn(maxt));
     }
 
 
-
-    private void Update()
+    private IEnumerator Spawn(float _t)
     {
-        if(tt >= maxt)
+        for(int i = 0; i < maxAgents; i++)
         {
-            tt = 0f;
+            yield return new WaitForSeconds(_t);
 
             // random position
             Vector2 rpos_ = UnityEngine.Random.insideUnitCircle * spawnRadius;
@@ -50,12 +56,40 @@ public class AgentSpawner : MonoBehaviour
             // random velocity
             Vector2 rvel = Vector2.up * UnityEngine.Random.Range(0f, 1f);
 
-            
+            var position = agents[i].position;
+            position.x = rpos.x;
+            position.z = rpos.y;
+
+            agents[i].position = position;
+
+            //agentsRB[i].velocity = rvel;
+            //
+            // agentsRB[i].gameObject.SetActive(true);
+        }
+
+        yield return true;
+    }
+
+
+    private void Update()
+    {
+        if(tt >= maxt)
+        {
+            tt = 0f;
+
+
+
+
 
         }
 
         tt += Time.deltaTime;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(spawnOrigin, spawnRadius);
+    }
 
 }

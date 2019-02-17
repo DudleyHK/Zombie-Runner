@@ -257,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815863887}
   m_LocalRotation: {x: -0.17098428, y: 0.42341626, z: -0.09801534, w: -0.8842376}
-  m_LocalPosition: {x: 21.44, y: 12.72, z: -23.48}
+  m_LocalPosition: {x: 23.53, y: 16.5, z: -18.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 894615010}
   - component: {fileID: 894615011}
   - component: {fileID: 894615012}
+  - component: {fileID: 894615013}
   m_Layer: 0
   m_Name: Game_Controller
   m_TagString: Untagged
@@ -401,6 +402,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd35e73e2bd2524f96bbbb747355a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &894615013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894615007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6477f9cf33f9d844aaef8bcb287ca4fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOrigin:
+    x: 0
+    y: 0
+    z: -30
+  spawnRadius: 5.29
+  agentsRB: []
+  agents: []
+  maxAgents: 10
 --- !u!1 &1262679702
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4730213039373322, guid: 83071b494e8e82c439632558862f23db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 4730213039373322, guid: 83071b494e8e82c439632558862f23db, type: 3}
       propertyPath: m_LocalRotation.x
@@ -562,21 +583,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83071b494e8e82c439632558862f23db, type: 3}
---- !u!1 &2057981909 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1216124237750596, guid: 83071b494e8e82c439632558862f23db,
-    type: 3}
-  m_PrefabInstance: {fileID: 2057981908}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2057981910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057981909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf10cdea1344482e91a4f2b58506b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
